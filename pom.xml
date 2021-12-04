@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>ru.netology</groupId>
-    <artifactId>dao-hibernate</artifactId>
+    <artifactId>netology-dao-hibernate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>netology-dao-hibernate</name>
     <description>netology-dao-hibernate</description>
