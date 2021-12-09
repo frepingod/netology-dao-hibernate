@@ -1,23 +1,18 @@
 package ru.netology.repository;
 
-import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ru.netology.model.Person;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-@AllArgsConstructor
-public class PersonRepository {
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    List<Person> findByCityOfLiving(String city);
 
-    public List<Person> getPersonsByCity(String city) {
-        return entityManager.createQuery("select p from Person p where p.cityOfLiving = :city order by p.cityOfLiving", Person.class)
-                .setParameter("city", city)
-                .getResultList();
-    }
+    List<Person> findByAgeLessThanOrderByAge(int age);
+
+    Optional<Person> findByNameAndSurname(String name, String surname);
 }
