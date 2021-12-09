@@ -20,16 +20,16 @@ public class PersonController {
 
     @GetMapping("/by-city")
     public List<Person> findByCityOfLiving(@RequestParam String city) {
-        return personRepository.findByCityOfLiving(city);
+        return personRepository.findPersonByCity(city);
     }
 
     @GetMapping("/by-age")
     public List<Person> findByAgeLessThanOrderByAge(@RequestParam int age) {
-        return personRepository.findByAgeLessThanOrderByAge(age);
+        return personRepository.findPersonByAgeLessThanSortedByAge(age);
     }
 
     @GetMapping("/by-name-and-surname")
     public Optional<Person> findByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
-        return personRepository.findByNameAndSurname(name, surname);
+        return personRepository.findPersonByNameAndSurname(name, surname);
     }
 }
