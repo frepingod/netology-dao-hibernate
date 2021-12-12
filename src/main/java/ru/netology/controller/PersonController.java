@@ -32,4 +32,9 @@ public class PersonController {
     public Optional<Person> findByNameAndSurname(@RequestParam String name, @RequestParam String surname) {
         return personRepository.findByNameAndSurname(name, surname);
     }
+
+    @GetMapping("/all")
+    public List<Person> findAll() {
+        return personRepository.findAll();
+    }
 }
